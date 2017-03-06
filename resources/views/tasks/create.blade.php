@@ -15,20 +15,27 @@
                     
                     <h2>Create new task</h2>
 
-                    <form action="">
-
+                    <form action="/tasks" method="POST">
+                        
+                        {{ csrf_field() }}
+                        
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" class="form-control">
                         </div>
 
                         <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea name="description" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
                             <label for="">Recurring Task</label>
                             <select name="state" id="task_state" class="form-control">
-                                <option value="">One off</option>
-                                <option value="">Daily</option>
-                                <option value="">Weekly</option>
-                                <option value="">Monthly</option>
+                                <option value="one_off">One off</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
                             </select>
                         </div>
 

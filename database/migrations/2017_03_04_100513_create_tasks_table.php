@@ -17,6 +17,7 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('title');
+            $table->text('description');
             $table->string('state')->default('one_off');
             $table->string('status')->default('active');
             $table->timestamps();

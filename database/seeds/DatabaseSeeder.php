@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Task;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        User::truncate();
+        Task::truncate();
+
+        factory(User::class, 1)->create();
+        factory(Task::class, 5)->create();
     }
 }
