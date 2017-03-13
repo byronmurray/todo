@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::where('complete', 0)->get();
+        $tasks = Task::where('complete', 0)->orderBy('created_at', 'desc')->get();
 
         return view('tasks.index', compact('tasks'));
     }
@@ -27,6 +27,20 @@ class TaskController extends Controller
     public function create()
     {
         return view('tasks.create');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function complete()
+    {
+        
+        $tasks = Task::where('complete', 1)->orderBy('updated_at', 'desc')->get();
+
+        return view('tasks.complete', compact('tasks'));
+        
     }
 
     /**
@@ -47,7 +61,7 @@ class TaskController extends Controller
 
         ]);
 
-        return back();
+        return redirect('/tasks');
     }
 
     /**
@@ -82,7 +96,16 @@ class TaskController extends Controller
      */
     public function update(Request $request)
     {
-        return $request->all();
+        
+        //return $request->task;
+
+        foreach ($request->task as $id) {
+            
+            Task::where('id', $id)->update(['complete' => 1]);
+
+        }
+
+        return back();
     }
 
     /**

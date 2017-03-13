@@ -43,7 +43,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="/tasks">Tasks</a></li>
+                        <li><a href="/tasks">View</a></li>
+                        <li><a href="/tasks/create">New</a></li>
+                        <li><a href="/tasks/complete">Completed</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

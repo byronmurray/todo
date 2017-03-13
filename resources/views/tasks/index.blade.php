@@ -16,9 +16,8 @@
                     <form action="/tasks/edit" method="POST">
                         {{ csrf_field() }}
                         
-                        <!-- send form to be edited
-                        will send an array of checked vaules if checked
-                        @controller check these vaules and update the tasks->compeleted to true -->
+                        <!-- make a list for recurring todo's like shopping list -->
+                        <!-- display on choosen dates, like every friday put out rubbish -->
 
                         <div class="form-group">
                             <a href="/tasks/create" class="btn btn-default">Add New</a>
@@ -28,7 +27,7 @@
                     
                         <ul class="list-group">
                             @foreach ($tasks as $task)
-                                <li class="list-group-item"><a href="/tasks/{{ $task->id }}">{{ $task->title }} </a><input type="checkbox" name="{{ $task->id }}" value="{{ $task->id }}" class="pull-right"></li>
+                                <li class="list-group-item"><a href="/tasks/{{ $task->id }}">{{ $task->title }} </a><input type="checkbox" name="task[]" value="{{ $task->id }}" class="pull-right"></li>
                             @endforeach
                         </ul>
 

@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Task;
+use App\Note;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,8 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         User::truncate();
         Task::truncate();
+        Note::truncate();
+
 
         factory(User::class, 1)->create();
         factory(Task::class, 5)->create();
+        factory(Note::class, 5)->create();
     }
 }

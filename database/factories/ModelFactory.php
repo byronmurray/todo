@@ -32,3 +32,12 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
         'description' => $faker->realText($maxNbChars = 200, $indexSize = 2),
     ];
 });
+
+
+$factory->define(App\Note::class, function (Faker\Generator $faker) {
+
+    return [
+        'task_id' => rand(1,5),
+        'body' => $faker->realText($maxNbChars = 200, $indexSize = 2),
+    ];
+});

@@ -19,11 +19,33 @@
                         <h3>Description</h3>
                         {{ $task->description }}
                     </p>
-                    
-                    <p>Make edits to title<br>description<br> add notes<br>Change recurring type<br>
-                    Is where you would see all the stats on a recurring task</p>
 
-                    <a href="#" class="btn btn-default">Update</a>
+                    @if (count($task->notes))
+                        <h3>Notes</h3>
+                        <hr>
+                        @foreach ($task->notes as $note)
+                            <p><strong>Created on : </strong>{{ $note->created_at }}</p>
+                            <p>{{ $note->body }} </p>
+                            <hr>
+                        @endforeach
+                    @endif
+                    
+                    <h3>Add Note</h3>
+
+                    <form action="#" method="POST">
+                        
+                        {{ csrf_field() }}
+                        
+                        <div class="form-group">
+                            <textarea name="description" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-default" value="Add">
+                        </div>
+
+                    </form>
+
 
                 </div>  
 
