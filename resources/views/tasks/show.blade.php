@@ -32,12 +32,12 @@
                     
                     <h3>Add Note</h3>
 
-                    <form action="#" method="POST">
+                    <form action="/notes/{{ $task->id }}" method="POST">
                         
                         {{ csrf_field() }}
                         
                         <div class="form-group">
-                            <textarea name="description" class="form-control"></textarea>
+                            <textarea name="body" class="form-control"></textarea>
                         </div>
 
                         <div class="form-group">

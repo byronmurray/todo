@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -14,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::where('complete', 0)->orderBy('created_at', 'desc')->get();
+        $tasks = Task::where('complete', NULL)->orderBy('created_at', 'desc')->get();
 
         return view('tasks.index', compact('tasks'));
     }
@@ -37,7 +38,7 @@ class TaskController extends Controller
     public function complete()
     {
         
-        $tasks = Task::where('complete', 1)->orderBy('updated_at', 'desc')->get();
+        $tasks = Task::whereNotNull('complete')->orderBy('updated_at', 'desc')->get();
 
         return view('tasks.complete', compact('tasks'));
         
@@ -101,7 +102,7 @@ class TaskController extends Controller
 
         foreach ($request->task as $id) {
             
-            Task::where('id', $id)->update(['complete' => 1]);
+            Task::where('id', $id)->update(['complete' => Carbon::now()]);
 
         }
 

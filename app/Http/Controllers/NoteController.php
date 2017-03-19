@@ -15,9 +15,18 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $task)
     {
-        //
+
+        Note::create([
+
+            'task_id' => 1,
+            'body' => $request->body,
+            
+
+        ]);
+
+        return back();
     }
 
     /**
