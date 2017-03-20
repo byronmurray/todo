@@ -40,6 +40,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="">Importance</label>
+                            <select name="importance" id="task_importance" class="form-control">
+                                <option value="2">Casual</option>
+                                <option value="1">High</option>
+                                <option value="3">Low</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="">Notify me </label>
                             <input type="checkbox" value="notifications">
                         </div>

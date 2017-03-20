@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::where('complete', NULL)->orderBy('created_at', 'desc')->get();
+        $tasks = Task::where('complete', NULL)->orderBy('importance')->get();
 
         return view('tasks.index', compact('tasks'));
     }
@@ -59,6 +59,7 @@ class TaskController extends Controller
             'user_id' => 1,
             'description' => $request->description,
             'state' => $request->state,
+            'importance' => $request->importance,
 
         ]);
 

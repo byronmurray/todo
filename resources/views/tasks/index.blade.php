@@ -27,7 +27,12 @@
                     
                         <ul class="list-group">
                             @foreach ($tasks as $task)
-                                <li class="list-group-item"><a href="/tasks/{{ $task->id }}">{{ $task->title }} </a><input type="checkbox" name="task[]" value="{{ $task->id }}" class="pull-right"></li>
+                            @if ($task->importance == 1)
+                                <li class="list-group-item" style="background: red;">
+                            @else
+                                <li class="list-group-item">
+                            @endif
+                                <a href="/tasks/{{ $task->id }}">{{ $task->title }} </a><input type="checkbox" name="task[]" value="{{ $task->id }}" class="pull-right"></li>
                             @endforeach
                         </ul>
 
