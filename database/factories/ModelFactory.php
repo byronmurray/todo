@@ -30,6 +30,7 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
         'user_id' => 1,
         'title' => $faker->jobTitle,
         'description' => $faker->realText($maxNbChars = 200, $indexSize = 2),
+        'importance' => rand(1,3),
     ];
 });
 

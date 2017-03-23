@@ -13,7 +13,9 @@
 
                 <div class="panel-body">
 
-                    <p><strong>Created on : </strong>{{ $task->created_at }}</p>
+                    <p><strong>Created on : </strong>{{ $task->created_at }} @if ($task->complete != NULL)
+                        <strong>Completed on : </strong>{{ $task->complete }}
+                    @endif</p>
 
                     <p>
                         <h3>Description</h3>
